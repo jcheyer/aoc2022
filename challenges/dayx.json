@@ -1,0 +1,83 @@
+{
+    "Files": [
+        {
+            "FileName": "day11.go",
+            "Data": {
+                "Day": 11
+            }
+        },
+        {
+            "FileName": "day12.go",
+            "Data": {
+                "Day": 12
+            }
+        },
+        {
+            "FileName": "day13.go",
+            "Data": {
+                "Day": 13
+            }
+        },
+        {
+            "FileName": "day14.go",
+            "Data": {
+                "Day": 14
+            }
+        },
+        {
+            "FileName": "day15.go",
+            "Data": {
+                "Day": 15
+            }
+        },
+        {
+            "FileName": "day16.go",
+            "Data": {
+                "Day": 16
+            }
+        },
+        {
+            "FileName": "day17.go",
+            "Data": {
+                "Day": 17
+            }
+        },
+        {
+            "FileName": "day18.go",
+            "Data": {
+                "Day": 18
+            }
+        },{
+            "FileName": "day19.go",
+            "Data": {
+                "Day": 19
+            }
+        },
+        {
+            "FileName": "day20.go",
+            "Data": {
+                "Day": 20
+            }
+        },{
+            "FileName": "day21.go",
+            "Data": {
+                "Day": 21
+            }
+        },{
+            "FileName": "day22.go",
+            "Data": {
+                "Day": 22
+            }
+        },{
+            "FileName": "day23.go",
+            "Data": {
+                "Day": 23
+            }
+        },{
+            "FileName": "day24.go",
+            "Data": {
+                "Day": 24
+            }
+        }
+    ]
+}
