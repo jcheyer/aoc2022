@@ -3,7 +3,6 @@ package challenges
 import (
 	"fmt"
 
-	"github.com/davecgh/go-spew/spew"
 	"github.com/jcheyer/aoc2021/challenges/internal/tube"
 	"github.com/jcheyer/aoc2021/lib"
 )
@@ -24,7 +23,7 @@ func (d *Day10) Load(file string) error {
 		return err
 	}
 	d.tube = tube.New(d.rawInput)
-	spew.Dump(d.tube.SignalStrength)
+	//spew.Dump(d.tube.SignalStrength)
 	return nil
 }
 
@@ -33,7 +32,6 @@ func (d *Day10) Part1() string {
 	for _, signalStrength := range d.tube.SignalStrength {
 
 		res += int64(signalStrength)
-		spew.Dump(res)
 
 	}
 
@@ -42,9 +40,7 @@ func (d *Day10) Part1() string {
 
 func (d *Day10) Part2() string {
 
-	res := 0
+	//res := 0
 
-	fmt.Printf("%s\n", d.tube.Screen)
-
-	return fmt.Sprintf("%d", res)
+	return fmt.Sprintf("\n%s\n", d.tube.Screen)
 }

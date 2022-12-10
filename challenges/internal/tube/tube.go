@@ -1,7 +1,6 @@
 package tube
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -22,7 +21,7 @@ func New(data []string) *Tube {
 	for _, line := range data {
 
 		parts := strings.Split(line, " ")
-		fmt.Printf("Parsing %s %+v x: %+v cycle: %+v\n", line, parts, t.x, t.cycle)
+		//fmt.Printf("Parsing %s %+v x: %+v cycle: %+v\n", line, parts, t.x, t.cycle)
 		switch parts[0] {
 
 		case "noop":
@@ -42,7 +41,7 @@ func New(data []string) *Tube {
 			t.x += val
 
 		}
-		fmt.Printf("%s\n", t.Screen)
+		//fmt.Printf("%s\n", t.Screen)
 	}
 	return t
 }
