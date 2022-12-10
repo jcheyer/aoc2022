@@ -27,5 +27,5 @@ func TestDay09p2(t *testing.T) {
 	//assert.Equal(t, "13", d.Part1())
 	assert.NotEqual(t, "fdsafdsa", d.Part1())
 	assert.Equal(t, "36", d.Part2())
-	assert.Equal(t, 1, 2)
+
 }
