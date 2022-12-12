@@ -68,7 +68,7 @@ func (d *Day11) Part2() string {
 	for m := 0; m < len(d.monkeys2); m++ {
 		tmp = append(tmp, d.monkeys2[m].Counter)
 
-		spew.Dump(d.monkeys2[m].Counter)
+		//spew.Dump(d.monkeys2[m].Counter)
 	}
 	sort.Sort(sort.Reverse(sort.IntSlice(tmp)))
 
@@ -103,6 +103,7 @@ func (d *Day11) Do(what int, count int, f func(int64) int64) map[int]*monkeys.Mo
 }
 
 func (d *Day11) DumpCounters() {
+	return
 	fmt.Println("------- Dump ------------")
 	for m := 0; m < len(d.monkeys2); m++ {
 		spew.Dump(d.monkeys2[m].Counter)

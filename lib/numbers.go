@@ -1,5 +1,7 @@
 package lib
 
+import "math"
+
 const MaxUint = ^uint(0)
 const MinUint = 0
 const MaxInt = int(MaxUint >> 1)
@@ -53,4 +55,8 @@ func LowInt64(a int64, b int64) int64 {
 		return a
 	}
 	return b
+}
+
+func OnOff(a, b int) bool {
+	return math.Abs(float64(a-b)) <= 1
 }
