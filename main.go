@@ -29,8 +29,8 @@ func main() {
 	challengeMap["day10"] = &challenges.Day10{}
 	challengeMap["day11"] = &challenges.Day11{}
 	challengeMap["day12"] = &challenges.Day12{}
-	/*	challengeMap["day13"] = &challenges.Day13{}
-		challengeMap["day14"] = &challenges.Day14{}
+	challengeMap["day13"] = &challenges.Day13{}
+	/*	challengeMap["day14"] = &challenges.Day14{}
 		challengeMap["day15"] = &challenges.Day15{}
 		challengeMap["day16"] = &challenges.Day16{}
 		challengeMap["day17"] = &challenges.Day17{}
