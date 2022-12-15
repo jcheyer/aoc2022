@@ -46,7 +46,8 @@ func (r Radar) Part1(lineNr int) int {
 }
 
 func (r Radar) Part2(min, max, frequency int) int {
-	pos := r.scanField(min, max)
+	pos, checked, skipped := r.scanField(min, max)
+	fmt.Printf("distress beacon location: %+v (%d checked, %d skipped)\n", pos, checked, skipped)
 
 	return pos.x*frequency + pos.y
 }
@@ -86,15 +87,18 @@ func (r Radar) scanLine(row int) int {
 	return total
 }
 
-func (r Radar) scanField(min, max int) coord {
-
+func (r Radar) scanField(min, max int) (coord, int, int) {
+	skipTotal := 0
+	checkedTotal := 0
 	for y := min; y <= max; y++ {
 		for x := min; x <= max; x++ {
+			checkedTotal++
 			located := true
 			for _, s := range r.Sensors {
-				d := ManhattanDistance(s.Position, coord{x, y})
-				if d <= s.Distance {
-					skip := s.Distance - d
+				distance := ManhattanDistance(s.Position, coord{x, y})
+				if distance <= s.Distance {
+					skip := s.Distance - distance
+					skipTotal += skip
 					x += skip
 					located = false
 					break
@@ -102,10 +106,10 @@ func (r Radar) scanField(min, max int) coord {
 			}
 
 			if located {
-				return coord{x, y}
+				return coord{x, y}, checkedTotal, skipTotal
 			}
 		}
 	}
 
-	return coord{0, 0}
+	return coord{0, 0}, 0, 0
 }
