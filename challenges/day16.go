@@ -9,9 +9,10 @@ import (
 )
 
 type Day16 struct {
-	rawInput []string
-	vs       ValveSystem
-	graph    *dijkstra.Graph
+	rawInput  []string
+	vs        ValveSystem
+	graph     *dijkstra.Graph
+	distances map[string]int
 }
 
 type Valve struct {
@@ -32,6 +33,7 @@ func (d *Day16) Load(file string) error {
 	}
 	d.vs = d.createValveSystem()
 	d.graph = d.createGraph()
+	d.distances = d.precalcDistances()
 
 	//d.vs = d.optimizeSystem(d.vs)
 
@@ -66,6 +68,20 @@ func (d Day16) createGraph() *dijkstra.Graph {
 	}
 
 	return graph
+}
+
+func (d Day16) precalcDistances() map[string]int {
+	distances := map[string]int{}
+	for name1 := range d.vs {
+		for name2 := range d.vs {
+			id1, _ := d.graph.GetMapping(name1)
+			id2, _ := d.graph.GetMapping(name2)
+			path, _ := d.graph.Shortest(id1, id2)
+			distances[name1+name2] = int(path.Distance)
+		}
+	}
+
+	return distances
 }
 
 func (d *Day16) optimizeSystem(vs ValveSystem) ValveSystem {
@@ -106,7 +122,7 @@ func (d Day16) solveP1(step, pressure, flow int, currentValve string, tunnels []
 		fmt.Printf("%s ToDo: %+v\n", strings.Repeat("  ", depth), tunnels)
 	}
 	for _, tunnel := range tunnels {
-		currentValveID, err := d.graph.GetMapping(currentValve)
+		/*currentValveID, err := d.graph.GetMapping(currentValve)
 		if err != nil {
 			panic("CurrentValve...." + err.Error())
 		}
@@ -119,7 +135,9 @@ func (d Day16) solveP1(step, pressure, flow int, currentValve string, tunnels []
 		if err != nil {
 			panic("Shortest... " + err.Error() + "\n" + tunnel + " " + currentValve)
 		}
-		walkAndOpen := int(walk.Distance + 1)
+
+		walkAndOpen := int(walk.Distance + 1)*/
+		walkAndOpen := d.distances[currentValve+tunnel] + 1
 		if step+walkAndOpen < limit {
 			nextStep := step + walkAndOpen
 			nextPressure := pressure + walkAndOpen*flow
