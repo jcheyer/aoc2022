@@ -181,7 +181,7 @@ func (d *Day16) Part1() string {
 
 	res = d.solveP1(0, 0, 0, "AA", toOpen, 30, 0, false)
 
-	return fmt.Sprintf("%d", res)
+	return fmt.Sprintf("%d (opened Valves: %d)", res, len(toOpen))
 }
 
 func (d *Day16) Part2() string {

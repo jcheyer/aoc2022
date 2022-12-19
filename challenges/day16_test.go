@@ -39,5 +39,5 @@ func TestDay16CreateAndOptimize(t *testing.T) {
 func TestDay16p1(t *testing.T) {
 	d := Day16{}
 	assert.NoError(t, d.Load("testfiles/day16.txt"))
-	assert.Equal(t, "1651", d.Part1())
+	assert.Regexp(t, "^1651", d.Part1())
 }
