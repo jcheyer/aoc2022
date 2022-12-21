@@ -10,9 +10,8 @@ type MonkeyOp func(a, b int) int
 type Monkey struct {
 	name   string
 	v1, v2 string
-	op     MonkeyOp
-	result int
-	done   bool
+	Op     MonkeyOp
+	Result int
 }
 
 type Monkeys map[string]Monkey
@@ -31,9 +30,8 @@ func parseLine(line string) (string, Monkey) {
 
 	line = strings.ReplaceAll(line, ":", " : ")
 
-	_, err := fmt.Sscanf(line, "%s : %d", &m.name, &m.result)
+	_, err := fmt.Sscanf(line, "%s : %d", &m.name, &m.Result)
 	if err == nil {
-		m.done = true
 		return m.name, m
 	}
 
@@ -44,13 +42,13 @@ func parseLine(line string) (string, Monkey) {
 	}
 	switch op {
 	case "*":
-		m.op = func(a, b int) int { return a * b }
+		m.Op = func(a, b int) int { return a * b }
 	case "+":
-		m.op = func(a, b int) int { return a + b }
+		m.Op = func(a, b int) int { return a + b }
 	case "-":
-		m.op = func(a, b int) int { return a - b }
+		m.Op = func(a, b int) int { return a - b }
 	case "/":
-		m.op = func(a, b int) int { return a / b }
+		m.Op = func(a, b int) int { return a / b }
 	}
 	return m.name, m
 }
@@ -60,9 +58,9 @@ func Solve(m Monkeys, monkey string) int {
 }
 
 func (monkey Monkey) Solve(m Monkeys) int {
-	if monkey.done {
-		return monkey.result
+	if monkey.Op == nil {
+		return monkey.Result
 	}
 
-	return monkey.op(Solve(m, monkey.v1), Solve(m, monkey.v2))
+	return monkey.Op(Solve(m, monkey.v1), Solve(m, monkey.v2))
 }
