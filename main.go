@@ -36,12 +36,12 @@ func main() {
 	challengeMap["day17"] = &challenges.Skipped{}
 	challengeMap["day18"] = &challenges.Day18{}
 	challengeMap["day19"] = &challenges.Skipped{}
-	/*
-		challengeMap["day20"] = &challenges.Day20{}
-		challengeMap["day21"] = &challenges.Day21{}
-		challengeMap["day22"] = &challenges.Day22{}
-		challengeMap["day23"] = &challenges.Day23{}
-		challengeMap["day24"] = &challenges.Day24{}*/
+
+	challengeMap["day20"] = &challenges.Skipped{}
+	challengeMap["day21"] = &challenges.Day21{}
+	challengeMap["day22"] = &challenges.Skipped{}
+	challengeMap["day23"] = &challenges.Skipped{}
+	challengeMap["day24"] = &challenges.Skipped{}
 
 	problem, defined := challengeMap[challengeName]
 	if !defined {
