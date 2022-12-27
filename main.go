@@ -42,6 +42,7 @@ func main() {
 	challengeMap["day22"] = &challenges.Skipped{}
 	challengeMap["day23"] = &challenges.Skipped{}
 	challengeMap["day24"] = &challenges.Skipped{}
+	challengeMap["day25"] = &challenges.Day25{}
 
 	problem, defined := challengeMap[challengeName]
 	if !defined {
